@@ -46,8 +46,8 @@ div.app
         let a =0; for(let i =0; i<this.todos.length; i++){a+=parseInt(this.todos[i].price)} this.totalPrice = a}},
 
 
-    clear(){this.todos = [];  let tds = JSON.stringify(this.todos);
-            localStorage.setItem("tds", tds)}
+    clear(){this.todos = [];  
+            localStorage.clear()}
     },
 
     
@@ -55,7 +55,7 @@ div.app
 
     updated(){this.calculateTotalPrice()},
 
-    created(){let tds = JSON.parse(localStorage.getItem("tds")); this.todos = tds;
+    created(){let tds = JSON.parse(localStorage.getItem("tds")); if(tds){this.todos = tds}
     this.calculateTotalPrice()
      },
     
